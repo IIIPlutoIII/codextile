@@ -2,14 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-page-container',
-  template: `
-    <p>
-      page-container works!
-    </p>
-  `,
-  styles: [
-  ]
+  template: ` <div>0000</div> `,
+  styles: [],
 })
-export class PageContainerComponent {
-
-}
+export class PageContainerComponent {}

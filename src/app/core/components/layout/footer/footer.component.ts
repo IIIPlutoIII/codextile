@@ -3,13 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-    <p>
-      footer works!
-    </p>
+    <div class="flex justify-around bg-slate-900 text-gray-200 text-2xl">
+      FOOTER
+    </div>
   `,
-  styles: [
-  ]
+  styles: [],
 })
-export class FooterComponent {
-
-}
+export class FooterComponent {}

@@ -1,0 +1,51 @@
+<header class="bg-slate-100">
+  <!-- Nav -->
+  <div id="nav" class="container mx-auto">
+    <div class="py-3 flex justify-between">
+      <!-- LeftSide -->
+      <div id="LeftSide" class="ml-10 flex">
+        <!-- Logo and Brand -->
+        <div class="mr-4" id="BrandLogo">
+          <span class="font-semibold text-2xl"> CODEXTILE </span>
+        </div>
+        <!-- End Logo and Brand -->
+        <div class="ml-16">
+          <!-- Navigation Links -->
+          <div id="nav-links" class="mr-3 mt-1 text-sm max-sm:hidden">
+            <ul class="flex ml-6">
+              <li class="ml-4 hover:underline"><a href="">Home</a></li>
+              <li
+                id="dynamicLinks"
+                *ngFor="let eachLink of listLinks"
+                class="ml-4 hover:underline"
+              >
+                <a href="">{{ eachLink }}</a>
+              </li>
+              <li class="ml-4 hover:underline"><a href="">About</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- End Navigation Links -->
+      </div>
+      <!-- End LeftSide -->
+      <div class="absolute mt-6 container mx-auto"></div>
+      <!-- RightSide -->
+      <div class="mr-10" id="RightSide">
+        <ul class="flex">
+          <li class="mx-2 max-md:hidden">
+            <form>
+              <input placeholder="Search" type="text" />
+            </form>
+          </li>
+          <li class="mx-2 rounded-full max-md:hidden">Profile</li>
+          <li class="mx-2 rounded-full max-md:hidden">Alerts</li>
+        </ul>
+      </div>
+      <!-- End RightSide -->
+    </div>
+    <hr />
+  </div>
+
+  <!-- Mobile Menu: need to add -->
+</header>
