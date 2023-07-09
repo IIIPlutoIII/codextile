@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SidenavService } from './side-nav.service';
 
 // interface ILink {
 //   isMenu: boolean;
@@ -11,5 +12,9 @@ import { Component } from '@angular/core';
   styles: [],
 })
 export class NavComponent {
+  constructor(private sidenavService: SidenavService) {}
+
+  toggle = () => this.sidenavService.toggleSideNav();
+
   listLinks = ['Hardware', 'Software', 'Math'];
 }

@@ -6,6 +6,16 @@ import { AboutComponent } from './pages/about/about.component';
 import { HardwareComponent } from './pages/hardware/hardware.component';
 import { SoftwareComponent } from './pages/software/software.component';
 import { SectorsRoutingModule } from './sectors-routing.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -15,6 +25,20 @@ import { SectorsRoutingModule } from './sectors-routing.module';
     HardwareComponent,
     SoftwareComponent,
   ],
-  imports: [CommonModule, SectorsRoutingModule],
+  imports: [
+    CommonModule,
+    SectorsRoutingModule,
+    // Material Module
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatGridListModule,
+    MatCardModule,
+  ],
 })
 export class SectorsModule {}

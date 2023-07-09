@@ -1,51 +1,38 @@
-<header class="bg-slate-100">
-  <!-- Nav -->
-  <div id="nav" class="container mx-auto">
-    <div class="py-3 flex justify-between">
-      <!-- LeftSide -->
-      <div id="LeftSide" class="ml-10 flex">
-        <!-- Logo and Brand -->
-        <div class="mr-4" id="BrandLogo">
-          <span class="font-semibold text-2xl"> CODEXTILE </span>
-        </div>
-        <!-- End Logo and Brand -->
-        <div class="ml-16">
-          <!-- Navigation Links -->
-          <div id="nav-links" class="mr-3 mt-1 text-sm max-sm:hidden">
-            <ul class="flex ml-6">
-              <li class="ml-4 hover:underline"><a href="">Home</a></li>
-              <li
-                id="dynamicLinks"
-                *ngFor="let eachLink of listLinks"
-                class="ml-4 hover:underline"
-              >
-                <a href="">{{ eachLink }}</a>
-              </li>
-              <li class="ml-4 hover:underline"><a href="">About</a></li>
-            </ul>
-          </div>
-        </div>
+<!-- Nav -->
 
-        <!-- End Navigation Links -->
-      </div>
-      <!-- End LeftSide -->
-      <div class="absolute mt-6 container mx-auto"></div>
-      <!-- RightSide -->
-      <div class="mr-10" id="RightSide">
-        <ul class="flex">
-          <li class="mx-2 max-md:hidden">
-            <form>
-              <input placeholder="Search" type="text" />
-            </form>
-          </li>
-          <li class="mx-2 rounded-full max-md:hidden">Profile</li>
-          <li class="mx-2 rounded-full max-md:hidden">Alerts</li>
-        </ul>
-      </div>
-      <!-- End RightSide -->
-    </div>
-    <hr />
+<mat-toolbar class="bg-slate-700">
+  <button mat-icon-button class="" (click)="toggle()">
+    <mat-icon class="text-slate-200">menu</mat-icon>
+  </button>
+  <span class="font-medium text-2xl text-slate-200"> CODEXTILE </span>
+  <div id="nav-links" class="mr-3 mt-1 text-sm max-sm:hidden">
+    <ul class="flex ml-6">
+      <li class="font-medium ml-4 hover:underline text-slate-200">
+        <a href="">Home</a>
+      </li>
+      <li
+        id="dynamicLinks"
+        *ngFor="let eachLink of listLinks"
+        class="font-medium ml-4 hover:underline text-slate-200"
+      >
+        <a href="">{{ eachLink }}</a>
+      </li>
+      <li class="font-medium ml-4 hover:underline text-slate-200">
+        <a href="">About</a>
+      </li>
+    </ul>
   </div>
+  <span #Spacer class="flex-auto"></span>
+  <form class="text-sm rounded-md">
+    <input class="rounded-md" placeholder="Search" type="text" />
+  </form>
 
-  <!-- Mobile Menu: need to add -->
-</header>
+  <button mat-icon-button class="">
+    <mat-icon class="text-slate-200">favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon">
+    <mat-icon class="text-slate-200">account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!-- Mobile Menu: need to add -->

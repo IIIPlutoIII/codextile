@@ -1,27 +1,25 @@
-
-#welcomeBanner{
-  height: 550px;
-  overflow: visible;
-  z-index: 10;
-  content: '';
-}
-/* #diaSticker{
-
-}
-#bannerLogo{
-  
-} */
-#card{
-  cursor: default;
+.home {
+  width: 100rem;
+  height: 247rem;
+  background: #fff;
 }
 
-#card:hover{
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-  background-color: rgb(241 245 249);
+.my-portfolio {
+  color: #333;
+  text-align: center;
+
+  /* Heading/H3 24px */
+  font-size: 1.5rem;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
 }
-#cardTitle:hover{
-  cursor: default;
-  transform: scale(1.01);
-  transition: all 0.3s ease;
+
+.rect3103 {
+  width: 100rem;
+  height: 49.25rem;
+  flex-shrink: 0;
+  background: #f2f8f7;
 }

@@ -1,0 +1,27 @@
+
+#welcomeBanner{
+  height: 550px;
+  overflow: visible;
+  z-index: 10;
+  content: '';
+}
+/* #diaSticker{
+
+}
+#bannerLogo{
+  
+} */
+#card{
+  cursor: default;
+}
+
+#card:hover{
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  background-color: rgb(241 245 249);
+}
+#cardTitle:hover{
+  cursor: default;
+  transform: scale(1.01);
+  transition: all 0.3s ease;
+}

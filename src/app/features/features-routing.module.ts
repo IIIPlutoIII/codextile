@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const featuresRoutes: Routes = [
   {
-    path: 'sectors',
+    path: 's',
     loadChildren: () =>
       import('./sectors/sectors.module').then((m) => m.SectorsModule),
   },
   {
     path: '',
     redirectTo: '',
-    pathMatch: 'full', // >>>>ToCheck?
+    pathMatch: 'full',
   },
   {
     path: '**',
