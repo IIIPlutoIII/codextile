@@ -1,24 +1,17 @@
 <!-- Nav -->
-
 <mat-toolbar class="bg-slate-700">
-  <button mat-icon-button class="" (click)="toggle()">
+  <button mat-icon-button class="" (click)="togglesidenav()">
     <mat-icon class="text-slate-200">menu</mat-icon>
   </button>
   <span class="font-medium text-2xl text-slate-200"> CODEXTILE </span>
   <div id="nav-links" class="mr-3 mt-1 text-sm max-sm:hidden">
     <ul class="flex ml-6">
-      <li class="font-medium ml-4 hover:underline text-slate-200">
-        <a href="">Home</a>
-      </li>
       <li
         id="dynamicLinks"
         *ngFor="let eachLink of listLinks"
         class="font-medium ml-4 hover:underline text-slate-200"
       >
-        <a href="">{{ eachLink }}</a>
-      </li>
-      <li class="font-medium ml-4 hover:underline text-slate-200">
-        <a href="">About</a>
+        <a [routerLink]="eachLink.Routerlink">{{ eachLink.name }}</a>
       </li>
     </ul>
   </div>
@@ -30,9 +23,15 @@
   <button mat-icon-button class="">
     <mat-icon class="text-slate-200">favorite</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon">
     <mat-icon class="text-slate-200">account_circle</mat-icon>
   </button>
 </mat-toolbar>
 
+<!-- menu account -->
+
+<mat-menu class="w-72" #menu="matMenu">
+  <button routerLink="/f/auth/login" mat-menu-item>Login</button>
+  <button routerLink="/f/auth/register" mat-menu-item>Register</button>
+</mat-menu>
 <!-- Mobile Menu: need to add -->

@@ -1,0 +1,41 @@
+<form class="py-12 mx-auto container">
+  <mat-form-field class="w-4/12">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="title" value="" />
+  </mat-form-field>
+  <!--  -->
+  <div class="">
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" multiple>
+      <mat-button-toggle value="bold">Bold</mat-button-toggle>
+      <mat-button-toggle value="italic">Italic</mat-button-toggle>
+      <mat-button-toggle value="underline">Underline</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <!--  -->
+    <mat-form-field class="ml-2 w-24 h-[72px]">
+      <mat-select #fontSize value="16px" (selectionChange)="triggerResize()">
+        <mat-option value="10px">10px</mat-option>
+        <mat-option value="12px">12px</mat-option>
+        <mat-option value="14px">14px</mat-option>
+        <mat-option value="16px">16px</mat-option>
+        <mat-option value="18px">18px</mat-option>
+        <mat-option value="20px">20px</mat-option>
+        <mat-option value="24px">24px</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!--  -->
+  </div>
+
+  <!--  -->
+  <mat-form-field [style.fontSize]="fontSize.value" class="w-full h-screen">
+    <mat-label>Write here</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="5"
+    ></textarea>
+  </mat-form-field>
+  <button class="p-3" mat-raised-button>Post</button>
+</form>
