@@ -17,7 +17,7 @@ export class NavComponent {
   togglesidenav = () => this.sidenavService.toggleSideNav();
 
   listLinks = [
-    { name: 'Home', Routerlink: '/f/s' },
+    { name: 'Home', Routerlink: '/f/s/home' },
     { name: 'Hardware', Routerlink: '/f/s/hardware' },
     { name: 'Software', Routerlink: '/f/s/software' },
     { name: 'Math', Routerlink: '/f/editor' },

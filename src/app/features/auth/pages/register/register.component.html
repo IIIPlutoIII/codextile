@@ -1,67 +1,74 @@
 <div class="my-6 flex justify-center">
-  <div class="w-3/12 flex-col">
-    <div class="my-10 flex justify-center">
-      <span class="text-5xl underline text-slate-300"> Register </span>
+  <div
+    class="w-5/12 pb-12 flex justify-center border-slate-300 border-solid border-2 rounded-lg"
+  >
+    <div class="w-8/12">
+      <div class="my-10 flex justify-center">
+        <span class="text-5xl underline text-slate-300"> Register </span>
+      </div>
+      <app-alert *ngIf="showAlert" [color]="alertColor">
+        {{ alertMsg }}
+      </app-alert>
+      <!-- Registration Form -->
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <!-- Name -->
+        <div class="mb-3">
+          <label class="inline-block mb-2 text-slate-300">Name</label>
+          <app-input [control]="name" placeholder="Enter Name"></app-input>
+        </div>
+        <!-- Email -->
+        <div class="mb-3 text-slate-300">
+          <label class="inline-block mb-2">Email</label>
+          <app-input
+            [control]="email"
+            type="email"
+            placeholder="Enter Email"
+          ></app-input>
+        </div>
+        <!-- Age -->
+        <div class="mb-3 text-slate-300">
+          <label class="inline-block mb-2">Age</label>
+          <app-input
+            [control]="age"
+            type="number"
+            placeholder="Enter Age"
+          ></app-input>
+        </div>
+        <!-- Password -->
+        <div class="mb-3 text-slate-300">
+          <label class="inline-block mb-2">Password</label>
+          <app-input
+            [control]="password"
+            type="password"
+            placeholder="Enter Password"
+          ></app-input>
+        </div>
+        <!-- Confirm Password -->
+        <div class="mb-3 text-slate-300">
+          <label class="inline-block mb-2">Confirm Password</label>
+          <app-input
+            [control]="confirm_password"
+            type="password"
+            placeholder="Confirm Password"
+          ></app-input>
+        </div>
+        <!-- Phone Number -->
+        <div class="mb-3 text-slate-300">
+          <label class="inline-block mb-2">Phone Number</label>
+          <app-input
+            [control]="phoneNumber"
+            format="(000)000-0000"
+            placeholder="Enter Phone Number"
+          ></app-input>
+        </div>
+        <button
+          type="submit"
+          class="block w-full bg-slate-500 text-white py-1.5 px-3 rounded transition hover:bg-slate-900 disabled:opacity-50 disabled:bg-slate-300"
+          [disabled]="registerForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-    <!-- Registration Form -->
-    <form [formGroup]="registerForm">
-      <!-- Name -->
-      <div class="mb-3">
-        <label class="inline-block mb-2 text-slate-300">Name</label>
-        <app-input [control]="name" placeholder="Enter Name"></app-input>
-      </div>
-      <!-- Email -->
-      <div class="mb-3 text-slate-300">
-        <label class="inline-block mb-2">Email</label>
-        <app-input
-          [control]="email"
-          type="email"
-          placeholder="Enter Email"
-        ></app-input>
-      </div>
-      <!-- Age -->
-      <div class="mb-3 text-slate-300">
-        <label class="inline-block mb-2">Age</label>
-        <app-input
-          [control]="age"
-          type="number"
-          placeholder="Enter Age"
-        ></app-input>
-      </div>
-      <!-- Password -->
-      <div class="mb-3 text-slate-300">
-        <label class="inline-block mb-2">Password</label>
-        <app-input
-          [control]="password"
-          type="password"
-          placeholder="Enter Password"
-        ></app-input>
-      </div>
-      <!-- Confirm Password -->
-      <div class="mb-3 text-slate-300">
-        <label class="inline-block mb-2">Confirm Password</label>
-        <app-input
-          [control]="confirm_password"
-          type="password"
-          placeholder="Confirm Password"
-        ></app-input>
-      </div>
-      <!-- Phone Number -->
-      <div class="mb-3 text-slate-300">
-        <label class="inline-block mb-2">Phone Number</label>
-        <app-input
-          [control]="phoneNumber"
-          format="(000)000-0000"
-          placeholder="Enter Phone Number"
-        ></app-input>
-      </div>
-      <button
-        type="submit"
-        class="block w-full bg-slate-500 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400"
-        [disabled]="registerForm.invalid"
-      >
-        Submit
-      </button>
-    </form>
   </div>
 </div>

@@ -7,9 +7,12 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [
-    Validators.required,
-    Validators.minLength(3),
-  ]);
+  credentials = {
+    email: '',
+    password: '',
+  };
+
+  login() {
+    console.log(this.credentials);
+  }
 }

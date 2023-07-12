@@ -10,22 +10,24 @@ const sectorsRoutes: Routes = [
   {
     path: '',
     component: SectorsComponent,
-  },
-  {
-    path: 'hardware',
-    component: HardwareComponent,
-  },
-  {
-    path: 'software',
-    component: SoftwareComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: 'about',
-    component: AboutComponent,
+    children: [
+      {
+        path: 'hardware',
+        component: HardwareComponent,
+      },
+      {
+        path: 'software',
+        component: SoftwareComponent,
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+      },
+    ],
   },
 ];
 
