@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HardwareComponent } from './pages/hardware/hardware.component';
 import { SoftwareComponent } from './pages/software/software.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { SectorsRoutingModule } from './sectors-routing.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -39,6 +40,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     MatGridListModule,
     MatCardModule,
+    SharedModule,
   ],
 })
 export class SectorsModule {}

@@ -1,0 +1,18 @@
+<div *ngIf="md$ | async">
+  <!-- Search -->
+  <div class="p-2 pt-4">
+    <form class="text-sm rounded-md">
+      <input class="rounded-md" placeholder="Search" type="text" />
+    </form>
+  </div>
+  <!-- Navigation -->
+  <mat-list role="list" *ngFor="let eachLink of listLinks">
+    <mat-list-item role="listitem" class="m-0 p-0">
+      <a
+        class="font-medium text-xs hover:underline text-slate-200"
+        [routerLink]="eachLink.Routerlink"
+        >{{ eachLink.name }}</a
+      >
+    </mat-list-item>
+  </mat-list>
+</div>

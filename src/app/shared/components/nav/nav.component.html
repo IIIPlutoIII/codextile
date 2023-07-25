@@ -1,10 +1,18 @@
 <!-- Nav -->
 <mat-toolbar class="bg-slate-700">
-  <button mat-icon-button class="" *ngIf="true" (click)="togglesidenav()">
-    <mat-icon class="text-slate-200">menu</mat-icon>
+  <button *ngIf="md$ | async" mat-icon-button (click)="togglesidenav()">
+    <div>
+      <mat-icon class="text-slate-200">menu</mat-icon>
+    </div>
   </button>
-  <span class="font-medium text-2xl text-slate-200"> CODEXTILE </span>
-  <div id="nav-links" class="mr-3 mt-1 text-sm max-sm:hidden">
+  <span class="font-medium text-2xl max-md:text-lg text-slate-200">
+    CODEXTILE
+  </span>
+  <div
+    *ngIf="!(md$ | async)"
+    id="nav-links"
+    class="mr-3 mt-1 text-sm max-md:hidden"
+  >
     <ul class="flex ml-6">
       <li
         id="dynamicLinks"
@@ -16,11 +24,11 @@
     </ul>
   </div>
   <span #Spacer class="flex-auto"></span>
-  <form class="text-sm rounded-md">
+  <form class="text-sm rounded-md max-md:hidden">
     <input class="rounded-md" placeholder="Search" type="text" />
   </form>
 
-  <button mat-icon-button class="">
+  <button *ngIf="auth.isAuthenticated$ | async" mat-icon-button class="">
     <mat-icon class="text-slate-200">favorite</mat-icon>
   </button>
   <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon">
@@ -28,10 +36,26 @@
   </button>
 </mat-toolbar>
 
-<!-- menu account -->
+<!-- menu account not auth -->
 
 <mat-menu class="w-72" #menu="matMenu">
+  <div *ngIf="!(auth.isAuthenticated$ | async)">
+    <button routerLink="/f/auth/login" mat-menu-item>Login</button>
+    <button routerLink="/f/auth/register" mat-menu-item>Register</button>
+  </div>
+  <!-- menu account is auth -->
+  <div *ngIf="auth.isAuthenticated$ | async">
+    <button routerLink="" mat-menu-item>Profile</button>
+    <button routerLink="" mat-menu-item>User Settings</button>
+    <button routerLink="" mat-menu-item>Dark Mode (Toggle)</button>
+    <button routerLink="" mat-menu-item>Settings</button>
+    <button routerLink="" mat-menu-item>My Articles</button>
+    <button routerLink="" mat-menu-item>Logout</button>
+  </div>
+</mat-menu>
+
+<!-- <mat-menu class="w-72" #menu="matMenu">
   <button routerLink="/f/auth/login" mat-menu-item>Login</button>
   <button routerLink="/f/auth/register" mat-menu-item>Register</button>
-</mat-menu>
+</mat-menu> -->
 <!-- Mobile Menu: need to add -->

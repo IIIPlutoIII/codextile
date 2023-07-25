@@ -9,10 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './components/input/input.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { AlertComponent } from './components/alert/alert.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, InputComponent, AlertComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    InputComponent,
+    AlertComponent,
+  ],
   imports: [
+    HttpClientModule,
     CommonModule,
     AuthRoutingModule,
     FormsModule,

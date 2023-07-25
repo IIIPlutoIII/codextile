@@ -3,6 +3,11 @@
     class="w-5/12 pb-12 flex justify-center border-slate-300 border-solid border-2 rounded-lg"
   >
     <div class="w-8/12">
+      <div class="mt-6">
+        <app-alert *ngIf="showAlert" [color]="alertColor">
+          {{ alertMsg }}
+        </app-alert>
+      </div>
       <div class="my-10 flex justify-center">
         <span class="text-5xl underline text-slate-300"> Login </span>
       </div>
@@ -50,7 +55,7 @@
         <button
           type="submit"
           class="block w-full bg-slate-500 text-white py-1.5 px-3 rounded transition hover:bg-slate-900 disabled:opacity-50 disabled:bg-slate-300"
-          [disabled]="loginForm.invalid"
+          [disabled]="loginForm.invalid || inSubmission"
         >
           Submit
         </button>

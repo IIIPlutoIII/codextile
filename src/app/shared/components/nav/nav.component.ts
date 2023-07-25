@@ -1,5 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { SidenavService } from './side-nav.service';
+import { fromEvent, Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
+import { AuthService } from 'src/app/features/auth/services/auth.service';
 
 // interface ILink {
 //   isMenu: boolean;
@@ -12,7 +15,10 @@ import { SidenavService } from './side-nav.service';
   styles: [],
 })
 export class NavComponent {
-  constructor(private sidenavService: SidenavService) {}
+  constructor(
+    private sidenavService: SidenavService,
+    public auth: AuthService
+  ) {}
 
   togglesidenav = () => this.sidenavService.toggleSideNav();
 
@@ -21,6 +27,8 @@ export class NavComponent {
     { name: 'Hardware', Routerlink: '/f/s/hardware' },
     { name: 'Software', Routerlink: '/f/s/software' },
     { name: 'Math', Routerlink: '/f/editor' },
-    { name: 'About', Routerlink: '/f' },
+    { name: 'About', Routerlink: '/f/s/about' },
   ];
+
+  md$ = this.sidenavService.md$;
 }
