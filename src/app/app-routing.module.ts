@@ -10,13 +10,13 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'f/s/home',
     pathMatch: 'full',
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  // },
+  {
+    path: '**',
+    redirectTo: '',
+  },
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { SidenavService } from './side-nav.service';
 import { fromEvent, Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 // interface ILink {
 //   isMenu: boolean;
@@ -17,7 +18,8 @@ import { AuthService } from 'src/app/features/auth/services/auth.service';
 export class NavComponent {
   constructor(
     private sidenavService: SidenavService,
-    public auth: AuthService
+    public auth: AuthService,
+    private afAuth: AngularFireAuth
   ) {}
 
   togglesidenav = () => this.sidenavService.toggleSideNav();
@@ -31,4 +33,10 @@ export class NavComponent {
   ];
 
   md$ = this.sidenavService.md$;
+
+  async logout($event: Event) {
+    $event.preventDefault();
+
+    await this.afAuth.signOut();
+  }
 }
