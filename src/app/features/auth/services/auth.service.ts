@@ -11,6 +11,7 @@ import {
   Auth,
   authState,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   idToken,
   signInWithPopup,
   user,
@@ -27,6 +28,11 @@ export class AuthService {
   isAuthenticated$ = authState(this._auth);
   user$ = user(this._auth);
   idToken$ = idToken(this._auth);
+
+  async signupUsingGoogle() {
+    const auth_1 = await signInWithPopup(this._auth, new GoogleAuthProvider());
+    return await this._setUserData(auth_1);
+  }
 
   public async createUser(userData: IUser) {
     return createUserWithEmailAndPassword(

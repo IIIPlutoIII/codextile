@@ -1,7 +1,5 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { SidenavService } from './side-nav.service';
-import { fromEvent, Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
@@ -28,7 +26,7 @@ export class NavComponent {
     { name: 'Home', Routerlink: '/f/s/home' },
     { name: 'Hardware', Routerlink: '/f/s/hardware' },
     { name: 'Software', Routerlink: '/f/s/software' },
-    { name: 'Math', Routerlink: '/f/editor' },
+    // { name: 'Math', Routerlink: '/f/editor' },
     { name: 'About', Routerlink: '/f/s/about' },
   ];
 
