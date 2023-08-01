@@ -1,45 +1,47 @@
-import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/compat/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+
 import { Observable } from 'rxjs';
 import IUser from '../models/user.models';
 import { delay, map } from 'rxjs/operators';
+
+import { inject, Injectable } from '@angular/core';
+import { doc, Firestore, setDoc } from '@angular/fire/firestore';
+import {
+  Auth,
+  authState,
+  createUserWithEmailAndPassword,
+  idToken,
+  signInWithPopup,
+  user,
+  UserCredential,
+} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private usersCollection: AngularFirestoreCollection<IUser>;
-  public isAuthenticated$: Observable<boolean>;
-  // public isAuthenticatedWithDelay$: Observable<boolean>;
+  private _firestore = inject(Firestore);
+  private _auth = inject(Auth);
 
-  constructor(private auth: AngularFireAuth, private db: AngularFirestore) {
-    this.usersCollection = db.collection('users');
-    this.isAuthenticated$ = auth.user.pipe(map((user) => !!user));
-    // this.isAuthenticatedWithDelay$ = this.isAuthenticated$.pipe(delay(1000));
-  }
+  isAuthenticated$ = authState(this._auth);
+  user$ = user(this._auth);
+  idToken$ = idToken(this._auth);
 
   public async createUser(userData: IUser) {
-    const userCred = await this.auth.createUserWithEmailAndPassword(
-      userData.email as string,
-      userData.password as string
-    );
+    return createUserWithEmailAndPassword(
+      this._auth,
+      userData.email!.trim(),
+      userData.password!.trim()
+    ).then((auth) => this._setUserData(auth));
+  }
 
-    if (!userCred.user) {
-      throw new Error('User cant be found');
-    }
-
-    await this.db.collection('users').doc(userCred.user.uid).set({
-      name: userData.name,
-      email: userData.email,
-      age: userData.age,
-    });
-
-    await userCred.user.updateProfile({
-      displayName: userData.name,
-    });
+  private _setUserData(auth: UserCredential): Promise<IUser> {
+    const user: IUser = {
+      name: (auth.user.displayName || auth.user.email)!,
+      email: auth.user.email!,
+    };
+    const userDocRef = doc(this._firestore, `users/${auth.user.uid}`);
+    return setDoc(userDocRef, user).then(() => user);
   }
 }
