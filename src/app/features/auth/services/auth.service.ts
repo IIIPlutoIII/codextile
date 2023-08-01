@@ -36,7 +36,7 @@ export class AuthService {
     ).then((auth) => this._setUserData(auth));
   }
 
-  private _setUserData(auth: UserCredential): Promise<IUser> {
+  private async _setUserData(auth: UserCredential): Promise<IUser> {
     const user: IUser = {
       name: (auth.user.displayName || auth.user.email)!,
       email: auth.user.email!,
